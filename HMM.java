@@ -27,7 +27,7 @@ public class HMM {
     /**
      * Constructor: Initialize the HMM with probabilities
      */
-    public HMM() {
+   public HMM() {
         // TODO: Initialize the three probability matrices
         initial = new double[NUM_STATES];
         transition = new double[NUM_STATES][NUM_STATES];
@@ -35,13 +35,32 @@ public class HMM {
         
         // TODO: Set initial probabilities
         // Example: Start with fair die 50% of the time
+        initial[FAIR] = 0.5;
+        initial[LOADED] = 0.5;
         
         // TODO: Set transition probabilities
         // Example: 95% chance of staying in same state, 5% chance of switching
-        
+        transition[FAIR][FAIR]= 0.95;
+        transition[FAIR][LOADED] = 0.05;
+        transition[LOADED][FAIR] = 0.05;
+        transition[LOADED][LOADED] = 0.95;
         // TODO: Set emission probabilities
         // Fair die: each face has 1/6 probability
         // Loaded die: face 6 has 0.5 probability, others share remaining 0.5
+        for(int i = 0; i < NUM_OBSERVATIONS; i++){
+            emission[FAIR][i] = 1.0/6.0;
+        }
+        
+        emission[LOADED][0]= 0.16;
+        emission[LOADED][1]= 0.16;
+        emission[LOADED][2]= 0.16;
+        emission[LOADED][3]= 0.16;
+        emission[LOADED][4] = 0.16;
+        emission[LOADED][5] = 0.5;  
+
+
+
+        
     }
     
     /**
