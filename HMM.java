@@ -1,5 +1,3 @@
-//Core basic structure using AI. (Building it simulataneously)
-
 /**
  * Hidden Markov Model for the Dishonest Casino Problem
  */
@@ -27,7 +25,7 @@ public class HMM {
     /**
      * Constructor: Initialize the HMM with probabilities
      */
-   public HMM() {
+    public HMM() {
         // TODO: Initialize the three probability matrices
         initial = new double[NUM_STATES];
         transition = new double[NUM_STATES][NUM_STATES];
@@ -78,11 +76,19 @@ public class HMM {
         // TODO: Create backpointer matrix to store best previous state
         // backpointer[t][state] = which state at time t-1 led to this state at time t
         int[][] backpointer = new int[n][NUM_STATES];
-        
-        // TODO: Step 1 - Initialization (t = 0)
-        // For each state, calculate: initial[state] * emission[state][observation[0]]
-        // Remember: observations are 1-6, but array indices are 0-5
-        
+    
+    public int[] viterbi(int[] observations) {
+    int n = observations.length;
+    
+    double[][] viterbi = new double[n][NUM_STATES];
+    int[][] backpointer = new int[n][NUM_STATES];
+    
+    // Step 1 - Initialization (t = 0)
+    for (int state = 0; state < NUM_STATES; state++) {
+        int obsIndex = observationToIndex(observations[0]);
+        viterbi[0][state] = initial[state] * emission[state][obsIndex];
+        backpointer[0][state] = 0;
+    }
         
         // TODO: Step 2 - Recursion (t = 1 to n-1)
         // For each time step t:
