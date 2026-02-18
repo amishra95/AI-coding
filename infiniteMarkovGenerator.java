@@ -2,7 +2,8 @@
 //The Challenge: The "Infinite Monkey" Text GeneratorBuild a first-order Markov Chain that analyzes a body of text (like a book) and generates new sentences based on word transition probabilities.
 //The Logic: Create a dictionary (frequency map) where each key is a word, and the value is a list of words that follow it in the source text.
 //The Goal: Generate a 50-word paragraph that sounds syntactically plausible but semantically chaotic.
-// Key Concept: Transition Matrix $P$, where $P_{ij} = P(X_{t+1} = j \mid X_t = i)$.
+// Key Concept: Transition Matrix $P$, where $P_{ij} = P(X_{t+1} = j \mid X_t = i)$
+.
 */
 
 import java.util.*;
