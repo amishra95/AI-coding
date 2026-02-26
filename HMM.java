@@ -2,8 +2,10 @@
  * Hidden Markov Model for the Dishonest Casino Problem
  */
 public class HMM {
+    
 
     // Number of states (Fair = 0, Loaded = 1)
+    
     private static final int NUM_STATES = 2;
     private static final int FAIR = 0;
     private static final int LOADED = 1;
