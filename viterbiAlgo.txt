@@ -1,2 +1,5 @@
 A dynamic programming algorithm that finds the most likely sequence of hidden states given:
 
+
+also
+
